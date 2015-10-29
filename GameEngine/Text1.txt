@@ -1,0 +1,4 @@
+TO DO:
+-Add in various collision check functions
+-Test and check that serialization is working
+-Finish collision manager implementation

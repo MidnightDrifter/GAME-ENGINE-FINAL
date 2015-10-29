@@ -24,7 +24,8 @@ enum COMPONENT_TYPE
 	COMPONENT_TYPE_TRANSFORM,
 	COMPONENT_TYPE_SPRITE,
 	COMPONENT_TYPE_CONTROLLER,
-	COMPONENT_TYPE_UPDOWN
+	COMPONENT_TYPE_UPDOWN,
+	COMPONENT_TYPE_BODY
 };
 
 
@@ -50,6 +51,7 @@ public:
 	Component* getTransform();
 	Component* getSprite();
 	Component* getController();
+	Component* getBody();
 
 	int getID();
 	void setID(int i);

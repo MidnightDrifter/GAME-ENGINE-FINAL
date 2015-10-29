@@ -122,6 +122,10 @@ void GameObject::setComponentVector(std::vector<Component*> i)
 }
 
 
+Component* GameObject::getBody()
+{
+	return getComponent(COMPONENT_TYPE_BODY);
+}
 
 
 Component* GameObject::getSprite()

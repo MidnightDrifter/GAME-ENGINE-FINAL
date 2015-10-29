@@ -11,6 +11,7 @@
 
 class GameObjectManager
 {
+	friend class PhysicsManager;
 public:
 	GameObjectManager();
 	~GameObjectManager();
