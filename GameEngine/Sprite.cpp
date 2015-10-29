@@ -1,5 +1,7 @@
 #include "Sprite.h"
 #include "ResourceManager.h"
+#include <stdio.h>
+#include <string>
 
 extern ResourceManager ResourceMgr;
 Sprite::Sprite()
@@ -45,5 +47,14 @@ SDL_Surface* Sprite::getSprite()
 	{
 		return NULL;
 	}
+
+}
+
+void Sprite::serialize(FILE** fpp)
+{
+	std::string s = "";
+	fscanf_s(*fpp, "%s\n", s);
+	this->setSprite(ResourceMgr.loadSurface(s));
+
 
 }

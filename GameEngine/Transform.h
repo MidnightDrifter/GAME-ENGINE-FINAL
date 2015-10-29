@@ -4,6 +4,8 @@
 
 #include "Component.h"
 #include "GameObject.h"
+#include <stdio.h>
+
 class Transform :
 	public Component
 {
@@ -11,6 +13,7 @@ class Transform :
 	friend class Controller;
 
 public:
+	Transform() : posX(0), posY(0) {}
 	Transform(int x, int y);
 	~Transform();
 	
@@ -22,7 +25,7 @@ public:
 	void addToY(int y);
 	void subToX(int x);
 	void subToY(int y);
-
+	void serialize(FILE** fpp);
 protected:
 	int posX;
 	int posY;

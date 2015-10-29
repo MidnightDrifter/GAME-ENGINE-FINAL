@@ -2,6 +2,7 @@
 #include "Transform.h"
 #include "FramerateController.h"
 #include "GameObject.h"
+#include <stdio.h>
 
 extern FramerateController FrameCrtl;
 
@@ -15,6 +16,19 @@ UpDown::UpDown(bool i)
 {
 	isUp = i;
 }
+
+UpDown::UpDown(int t)
+{
+	timer = t;
+		isUp = false;
+}
+
+UpDown::UpDown(bool i, int t)
+{
+	timer = t;
+	isUp = i;
+}
+
 
 bool UpDown::getUp()
 {
@@ -58,7 +72,7 @@ void UpDown::Update()
 	Uint32 downCheck=0;
 	if (isUp)
 	{
-		while (upCheck < MOVE_TIME)
+		while (upCheck < timer)
 		{
 			upCheck += FrameCrtl.getFrameTime();
 			moveUp(3);
@@ -71,7 +85,7 @@ void UpDown::Update()
 	else
 	{
 
-		while (downCheck < MOVE_TIME)
+		while (downCheck < timer)
 		{
 
 			downCheck += FrameCrtl.getFrameTime();
@@ -87,37 +101,73 @@ void UpDown::Update()
 void UpDown::Update(Transform* t)
 {
 
-	Uint32 upCheck = 0;
-	Uint32 downCheck = 0;
+
 	if (isUp)
 	{
-		while (upCheck < MOVE_TIME)
+		if (upCheck < timer)
 		{
 			upCheck += FrameCrtl.getFrameTime();
 			t->addToY(3);
 		}
 
-		setUp(false);
+		else
+		{
+			upCheck = 0;
+			isUp = false;
+		}
+	}
 
+	
+
+
+	else
+{
+	if (upCheck < timer)
+	{
+		upCheck += FrameCrtl.getFrameTime();
+		t->subToY(3);
+	}
+	else
+	{
+		upCheck = 0;
+		isUp = true;
+	}
+}
+
+	
+
+}
+
+int UpDown::getTimer()
+{
+	return timer;
+}
+
+void UpDown::setTimer(int t)
+{
+	timer = t;
+}
+
+UpDown::~UpDown()
+{
+}
+
+
+void UpDown::serialize(FILE** fpp)
+{
+	int flag;
+
+	fscanf_s(*fpp, "%i %i\n", &flag, &timer);
+
+	if(flag==0)
+	{
+		this->setUp(true);
 	}
 
 	else
 	{
-
-		while (downCheck < MOVE_TIME)
-		{
-
-			downCheck += FrameCrtl.getFrameTime();
-			t->subToY(3);
-
-		}
-		setUp(true);
-
+		this->setUp(false);
 	}
 
-}
 
-
-UpDown::~UpDown()
-{
 }

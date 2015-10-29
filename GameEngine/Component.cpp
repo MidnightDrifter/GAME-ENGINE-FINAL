@@ -68,3 +68,8 @@ void Component::update()
 Component::~Component()
 {
 }
+
+void Component::serialize(FILE** fpp)
+{
+
+}

@@ -1,0 +1,33 @@
+COMPONENT OUTLINE:
+
+Transform
+X_POS Y_POS
+Sprite
+FILENAME
+Controller  //If applicable
+UpDown  //If applicable
+(0=True, 1=False)  TIME_TO_MOVE
+
+
+
+
+
+
+GAME OBJECT OUTLINE:
+
+PLAYER	
+X_POS Y_POS
+Enemy_No_1
+(Overloaded) X_POS Y_POS
+Enemy_No_2
+(Overloaded) X_POS Y_POS
+Enemy_No_3
+Enemy_No_4
+
+
+
+
+LEVEL OUTLINE:
+
+LEVEL1.txt
+LEVEL2.txt

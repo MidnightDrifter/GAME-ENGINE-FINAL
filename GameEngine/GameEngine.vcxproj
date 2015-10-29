@@ -154,6 +154,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -166,11 +167,17 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="FramerateController.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UpDown.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Serialization Outline.txt" />
+    <Text Include="Serialization Test.txt" />
+    <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

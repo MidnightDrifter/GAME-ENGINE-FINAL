@@ -14,6 +14,7 @@
 #include "Component.h"
 #include "Controller.h"
 #include "UpDown.h"
+#include "GameObjectManager.h"
 //#undef main
 
 #define WINDOW_X_POS 500
@@ -28,10 +29,11 @@
  ResourceManager ResourceMgr = ResourceManager();
 InputManager InputMgr = InputManager();
 FramerateController FrameCrtl = FramerateController(60);
-
+GameObjectManager GameObjectMgr = GameObjectManager();
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 int main(int argc, char* argv[])
 {
+	
 	std::string pic = "Resources\\darkpursuit.png";
 	Sprite* image = new Sprite(pic);
 	Controller* controller = new Controller();
@@ -119,12 +121,12 @@ int main(int argc, char* argv[])
 		
 
 		
-	//	SDL_Rect r = { trs->getX(), trs->getY(), IMAGE_WIDTH, IMAGE_HEIGHT };
-		SDL_Rect r = { transform->getX(), transform->getY(), IMAGE_WIDTH, IMAGE_HEIGHT };
+		SDL_Rect r = { trs->getX(), trs->getY(), IMAGE_WIDTH, IMAGE_HEIGHT };
+		//SDL_Rect r = { transform->getX(), transform->getY(), IMAGE_WIDTH, IMAGE_HEIGHT };
 		// dynamic_cast<Transform*>(zoroark.getTransform())->getX()
 		SDL_FillRect(pWinSurface, NULL, 0);
-		SDL_BlitSurface(image->getSprite(),NULL, pWinSurface, &r);
-		
+		//SDL_BlitSurface(image->getSprite(),NULL, pWinSurface, &r);
+		SDL_BlitSurface(spr->getSprite(), NULL, pWinSurface, &r);
 
 		SDL_UpdateWindowSurface(pWindow);
 		

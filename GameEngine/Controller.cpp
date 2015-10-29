@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "Transform.h"
 #include "GameObject.h"
+#include "..\..\SDL\include\SDL.h"
 extern InputManager InputMgr;
 
 Controller::Controller()
@@ -93,6 +94,11 @@ void Controller::Update()
 			}
 
 		}
+
+	}
+
+	void Controller::serialize(FILE** fpp)
+	{
 
 	}
 

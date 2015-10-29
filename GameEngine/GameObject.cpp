@@ -1,14 +1,18 @@
 #include "GameObject.h"
-//#include "Component.h"
-//#include "Transform.h"
-//#include "Sprite.h"
-//#include "UpDown.h"
-//#include "Controller.h"
+#include "Component.h"
+#include "Transform.h"
+#include "Sprite.h"
+#include "UpDown.h"
+#include "Controller.h"
 #include <vector>
+
+int GameObject::IDcounter = 0;
 
 GameObject::GameObject()
 {
 	components = (new std::vector<Component*>);
+	objectID = getCounter();
+	incrementCounter();
 	//components->reserve(NUMBER_OF_COMPONENTS);
 	//t = components->begin();
 }
@@ -16,6 +20,17 @@ GameObject::GameObject()
 GameObject::GameObject(Component* i)
 {
 	components = (new std::vector<Component*>(1, i));
+	objectID = getCounter();
+	incrementCounter();
+	//components->reserve(NUMBER_OF_COMPONENTS);
+	//t = components->end();
+}
+
+GameObject::GameObject(Component* i, int t)
+{
+	components = (new std::vector<Component*>(1, i));
+	objectID = t;
+	incrementCounter();
 	//components->reserve(NUMBER_OF_COMPONENTS);
 	//t = components->end();
 }
@@ -23,10 +38,21 @@ GameObject::GameObject(Component* i)
 GameObject::GameObject(std::vector<Component*> * i)
 {
 	components = i;
+	objectID = getCounter();
+	incrementCounter();
 	//components->reserve(NUMBER_OF_COMPONENTS);
 	//t = components->end();
 }
 
+
+GameObject::GameObject(std::vector<Component*> * i, int t)
+{
+	components = i;
+	objectID = t;
+	incrementCounter();
+	//components->reserve(NUMBER_OF_COMPONENTS);
+	//t = components->end();
+}
 
 void GameObject::addComponent(Component* i)
 {
@@ -38,8 +64,25 @@ void GameObject::addComponent(Component* i)
 
 }
 
+void GameObject::initializeCounter(int x)
+{
+	GameObject::IDcounter = x;
+}
 
+void GameObject::incrementCounter()
+{
+	GameObject::IDcounter++;
+}
 
+void GameObject::decrementCounter()
+{
+	GameObject::IDcounter--;
+}
+
+void GameObject::initializeCounter()
+{
+	initializeCounter(0);
+}
 Component* GameObject::getComponent(int type)
 {
 	if (components != NULL )//&& components->size() > 0)
@@ -112,6 +155,18 @@ void GameObject::update()
 		{components->at(i)->update();}
 	}
 }
+
+
+
+int GameObject::getID()
+{
+	return objectID;
+}
+
+void GameObject::setID(int i)
+{
+	objectID = i;
+}
 /*
 
 Sprite* GameObject::getSprite()
@@ -168,8 +223,66 @@ Controller* GameObject::getController()
 }
 */
 
+int GameObject::getCounter()
+{
+	return GameObject::IDcounter;
+}
+
 
 GameObject::~GameObject()
 {
+	decrementCounter();
+}
+
+
+GameObject* GameObject::LoadObject(const char* filename)
+{
+	GameObject* obj = NULL;
+	FILE * fp; 
+	fopen_s(&fp, filename, "r");
+	if (fp)
+	{
+		obj = new GameObject();
+		while (!feof(fp))
+		{
+			char componentName[256];
+			memset(componentName, 0, 256 * sizeof(char));
+			fscanf_s(fp,"%255s\n", componentName, sizeof(componentName));
+
+			if (0 == strcmp(componentName, "Transform"))
+			{
+				Transform* t = new Transform();
+				t->serialize(&fp);
+				t->setOwner(obj);
+				obj->addComponent(t);
+			}
+
+			else if (0 == strcmp(componentName, "Sprite"))
+			{
+				Sprite * s = new Sprite();
+				s->serialize(&fp);
+				s->setOwner(obj);
+				obj->addComponent(s);
+			}
+
+			else if (0 == strcmp(componentName, "Controller"))
+			{
+				Controller * c = new Controller();
+				c->serialize(&fp);
+				c->setOwner(obj);
+				obj->addComponent(c);
+			}
+
+			else if (0 == strcmp(componentName, "UpDown"))
+			{
+				UpDown* u = new UpDown();
+				u->serialize(&fp);
+				u->setOwner(obj);
+				obj->addComponent(u);
+			}
+		}
+	}
+
+	return obj;
 
 }

@@ -6,7 +6,7 @@
 //#include "Sprite.h"
 //#include "Controller.h"
 //#include "UpDown.h"
-
+#include <stdio.h>
 
 class GameObject;
 
@@ -19,6 +19,7 @@ public:
 	Component(GameObject* g);
 	virtual ~Component();
 	virtual void update();
+	virtual void serialize(FILE** fpp);
 	void setType(int i);
 	int getType();
 
