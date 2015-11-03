@@ -158,15 +158,14 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Math2D.c" />
-    <ClCompile Include="Matrix2D.c" />
+    <ClCompile Include="Math2D.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UpDown.cpp" />
-    <ClCompile Include="Vector2D.c" />
+    <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Body.h" />

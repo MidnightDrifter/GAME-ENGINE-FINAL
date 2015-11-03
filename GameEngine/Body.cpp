@@ -77,6 +77,126 @@ void Body::Integrate(float gravity, float dTime)
 	
 }
 
+Vector2D Body::getCurrentPos() const
+{
+	return currentPos;
+}
+
+void Body::setCurrentPos(Vector2D x)
+{
+	currentPos = x;
+}
+
+void Body::setCurrentPos(float x, float y)
+{
+	Vector2D a;
+	a.x = x;
+	a.y = y;
+	setCurrentPos(a);
+}
+
+
+Vector2D  Body::getPreviousPos() const
+{
+	return previousPos;
+}
+
+void Body::setPreviousPos(Vector2D x)
+{
+	previousPos = x;
+}
+
+void Body::setPreviousPos(float x, float y)
+{
+	Vector2D a;
+	a.x = x;
+	a.y = y;
+	setPreviousPos(a);
+}
+
+
+Vector2D Body::getAcceleration() const
+{
+	return acceleration;
+
+}
+
+void Body::setAcceleration(Vector2D a)
+{
+	acceleration = a;
+}
+
+void Body::setAcceleration(float a, float b)
+{
+	Vector2D x;
+	x.x = a;
+	x.y = b;
+	setAcceleration(x);
+}
+
+Vector2D Body::getVelocity() const
+{
+	return velocity;
+}
+
+
+void Body::setVelocity(Vector2D a)
+{
+	acceleration = a;
+}
+
+void Body::setVelocity(float x, float y)
+{
+	Vector2D i;
+	i.x = x;
+	i.y = y;
+	setVelocity(i);
+}
+
+Vector2D Body::getForce() const
+{
+	return force;
+}
+
+void Body::setForce(Vector2D a)
+{
+	force = a;
+}
+
+void Body::setForce(float a, float b)
+{
+	Vector2D x;
+	x.x = a;
+	x.y = b;
+	setForce(x);
+}
+
+
+void Body::setMass(float a)
+{
+	mass = a;
+	if(a)
+	{
+		inverseMass = 1.0 / a;
+	}
+	
+	else
+	{
+		inverseMass = 1;
+	}
+}
+
+float Body::getMass() const
+{
+	return mass;
+}
+
+float Body::getInverseMass() const
+{
+	return inverseMass;
+}
+
+
 
 Body::~Body()
 {

@@ -29,8 +29,8 @@ public:
 		Shape() : owner(NULL), shapeType(NUM) {}
 		Shape(ShapeType x) : owner(NULL), shapeType(x) {}
 		virtual ~Shape() {}
-		virtual bool TestPointCollision(float x, float y);
-		virtual bool TestPointCollision(Vector2D position);
+		virtual bool TestPointCollision(float x, float y) = 0;
+		virtual bool TestPointCollision(Vector2D position) = 0;
 		Body* getOwner();
 		void setOwner(Body* b);
 
@@ -53,7 +53,7 @@ public:
 			float getRadius();
 			void setRadius(float x);
 			bool TestPointCollision(float x, float y);
-			bool TestPointCollision(Vector2D position);
+			bool TestPointCollision(Vector2D point);
 			
 
 
@@ -72,10 +72,10 @@ public:
 		ShapeRectangle(float a, float b, float c, float d) : Shape(RECTANGLE), left(a), right(b), top(c), bottom(d) {}
 		~ShapeRectangle() {}
 
-		float getTop();
-		float getBottom();
-		float getLeft();
-		float getRight();
+		float getTop() const;
+		float getBottom() const;
+		float getLeft() const;
+		float getRight() const;
 		void setTop(float x);
 		void setBottom(float x);
 		void setLeft(float x);
