@@ -33,6 +33,8 @@ public:
 		virtual bool TestPointCollision(Vector2D position) = 0;
 		Body* getOwner();
 		void setOwner(Body* b);
+		int getShapeType();
+		void setShapeType(ShapeType s);
 
 	protected:
 		Body* owner;
@@ -80,6 +82,8 @@ public:
 		void setBottom(float x);
 		void setLeft(float x);
 		void setRight(float x);
+		float getWidth() { return (left - right); }
+		float getHeight() { return (top - bottom); }
 
 		bool TestPointCollision(float x, float y);
 		bool TestPointCollision(Vector2D position);
@@ -91,7 +95,7 @@ public:
 
 	};
 
-
+	
 	class Contact
 	{
 	public:
@@ -100,8 +104,19 @@ public:
 	private:
 		Body* bodies[2];
 	};
+	bool CircleRectangleCollision(ShapeCircle* circle, float cx, float cy, ShapeRectangle* rect, float rx, float ry);
+	bool CircleRectangleCollision(ShapeCircle* circle, Vector2D cPos, ShapeRectangle* rect, Vector2D rPos);
+	bool CircleRectangleCollision(ShapeRectangle* rect, float rx, float ry, ShapeCircle* circle, float cx, float cy);
+	bool CircleRectangleCollision(ShapeRectangle* rect, Vector2D rPos, ShapeCircle* circle, Vector2D rPos);
+	bool CircleCircleCollision(ShapeCircle* circle1, float c1x, float c1y, ShapeCircle* circle2, float c2x, float c2y);
+	bool CircleCircleCollision(ShapeCircle* circle1, Vector2D c1Pos, ShapeCircle* circle2, Vector2D c2Pos);
+	bool RectangleRectangleCollision(ShapeRectangle* rect1, float r1x, float r1y, ShapeRectangle* rect2, float r2x, float r2y);
+	bool RectangleRectangleCollision(ShapeRectangle* rect1, Vector2D r1Pos, ShapeRectangle* rect2, Vector2D r2Pos);
 		void CheckCollisionAndGenerateContacts(Shape* a, float ax, float ay, Shape* b, float bx, float by);
 		void CheckCollisionAndGenerateContacts(Shape* a, Vector2D aPos, Shape* b, Vector2D bPos);
+
+		bool ShapeShapeCollision(Shape* a, float ax, float ay, Shape* b, float bx, float by);
+		bool ShapeShapeCollision(Shape* a, Vector2D aPos, Shape* b, Vector2D bPos);
 
 
 	
