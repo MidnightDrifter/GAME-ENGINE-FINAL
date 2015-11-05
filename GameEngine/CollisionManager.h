@@ -107,7 +107,7 @@ public:
 	bool CircleRectangleCollision(ShapeCircle* circle, float cx, float cy, ShapeRectangle* rect, float rx, float ry);
 	bool CircleRectangleCollision(ShapeCircle* circle, Vector2D cPos, ShapeRectangle* rect, Vector2D rPos);
 	bool CircleRectangleCollision(ShapeRectangle* rect, float rx, float ry, ShapeCircle* circle, float cx, float cy);
-	bool CircleRectangleCollision(ShapeRectangle* rect, Vector2D rPos, ShapeCircle* circle, Vector2D rPos);
+	bool CircleRectangleCollision(ShapeRectangle* rect, Vector2D rPos, ShapeCircle* circle, Vector2D cPos);
 	bool CircleCircleCollision(ShapeCircle* circle1, float c1x, float c1y, ShapeCircle* circle2, float c2x, float c2y);
 	bool CircleCircleCollision(ShapeCircle* circle1, Vector2D c1Pos, ShapeCircle* circle2, Vector2D c2Pos);
 	bool RectangleRectangleCollision(ShapeRectangle* rect1, float r1x, float r1y, ShapeRectangle* rect2, float r2x, float r2y);
