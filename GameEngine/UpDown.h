@@ -12,7 +12,9 @@ class UpDown :
 	public Component
 {
 public:
-	UpDown();
+
+	UpDown() :Component(COMPONENT_TYPE_UPDOWN), timer(MOVE_TIME), isUp(false), upCheck(0) {}
+	
 	UpDown(bool i);
 	UpDown(int t);
 	UpDown(bool i, int t);

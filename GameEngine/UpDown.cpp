@@ -6,11 +6,6 @@
 
 extern FramerateController FrameCrtl;
 
-UpDown::UpDown()
-{
-	type = COMPONENT_TYPE_SPRITE;
-	isUp = false;
-}
 
 UpDown::UpDown(bool i)
 {
@@ -68,40 +63,45 @@ void UpDown::moveDown()
 
 void UpDown::Update()
 {
-	Uint32 upCheck = 0; 
-	Uint32 downCheck=0;
+	
 	if (isUp)
 	{
-		while (upCheck < timer)
+		if (upCheck < timer)
 		{
 			upCheck += FrameCrtl.getFrameTime();
 			moveUp(3);
 		}
 
-		setUp(false);
-
+		else {
+			upCheck = 0;
+			setUp(false);
+		}
 	}
 
 	else
 	{
 
-		while (downCheck < timer)
+		if (upCheck < timer)
 		{
 
-			downCheck += FrameCrtl.getFrameTime();
+			upCheck += FrameCrtl.getFrameTime();
 			moveDown(3);
 
 		}
-		setUp(true);
-
+		else {
+			upCheck = 0;
+			setUp(true);
+		}
 	}
 }
 
 
 void UpDown::Update(Transform* t)
 {
+	
 
-
+	if (t != NULL)
+{
 	if (isUp)
 	{
 		if (upCheck < timer)
@@ -134,6 +134,7 @@ void UpDown::Update(Transform* t)
 	}
 }
 
+	}
 	
 
 }
