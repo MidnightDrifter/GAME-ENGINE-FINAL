@@ -15,6 +15,8 @@
 #include "Controller.h"
 #include "UpDown.h"
 #include "GameObjectManager.h"
+#include "Event.h"
+#include "EventManager.h"
 //#undef main
 
 #define WINDOW_X_POS 500
@@ -30,6 +32,7 @@
 InputManager InputMgr = InputManager();
 FramerateController FrameCrtl = FramerateController(60);
 GameObjectManager GameObjectMgr = GameObjectManager();
+EventManager EventMgr = EventManager();
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 int main(int argc, char* argv[])
 {

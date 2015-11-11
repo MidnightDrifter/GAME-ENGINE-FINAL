@@ -5,7 +5,8 @@
 #include "Component.h"
 #include "GameObject.h"
 #include "Transform.h"
-
+#include "Event.h"
+#include "Controller.h"
 #define MOVE_TIME 2000  //How many milliseconds an object will move up and down for--X sec up, X sec down, repeat
 #define MOVE_DISTANCE 3.0f  //How far an object will move per frame
 class UpDown :
@@ -30,6 +31,11 @@ public:
 
 	int getTimer();
 	void setTimer(int t);
+
+
+	void handleEvent(Event* t);
+
+
 private:
 	bool isUp;
 	int upCheck;

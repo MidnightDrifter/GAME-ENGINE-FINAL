@@ -1,4 +1,4 @@
 TO DO:
--Add in various collision check functions
+-Add in various collision check functions  done
 -Test and check that serialization is working
 -Finish collision manager implementation

@@ -171,6 +171,13 @@ void GameObject::setID(int i)
 {
 	objectID = i;
 }
+
+void GameObject::handleEvent(Event* t)
+{
+
+}
+
+
 /*
 
 Sprite* GameObject::getSprite()

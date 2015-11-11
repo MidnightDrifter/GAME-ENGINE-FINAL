@@ -7,6 +7,7 @@
 //#include "Controller.h"
 //#include "UpDown.h"
 #include <stdio.h>
+#include "Event.h"
 
 class GameObject;
 
@@ -22,6 +23,8 @@ public:
 	virtual void serialize(FILE** fpp);
 	void setType(int i);
 	int getType();
+
+	virtual void handleEvent(Event* t) {};
 
 	void setOwner(GameObject* i);
 		GameObject * getOwner();

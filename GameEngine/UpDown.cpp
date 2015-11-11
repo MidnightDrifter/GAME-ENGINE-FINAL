@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 extern FramerateController FrameCrtl;
+extern EventManager EventMgr;
 
 UpDown::UpDown()
 {
@@ -170,4 +171,27 @@ void UpDown::serialize(FILE** fpp)
 	}
 
 
+}
+
+
+void UpDown::handleEvent(Event* t)
+{
+
+	if (t->getEventType() == PLAYER_HIT_EVENT)
+	{
+		PlayerHitEvent* pHE = static_cast<PlayerHitEvent*> (t);
+		pHE->setTimer(1000.0f);
+		EventMgr.AddTimedEvent(pHE);   
+		Transform* tPtr = static_cast<Transform*>(owner->getTransform());
+
+
+		if (tPtr)
+		{
+			//Do thing with event, in this case, move the enemy
+			tPtr->addToX(30);
+
+		}
+	}
+
+	
 }
