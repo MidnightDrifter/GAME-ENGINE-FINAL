@@ -1,7 +1,7 @@
 #ifndef PHYSICSMANAGER_H
 #define PHYSICSMANAGER_H
 #include "Event.h"
-
+#include "GameObject.h"
 class PhysicsManager
 {
 	friend class GameObjectManager;
@@ -13,7 +13,7 @@ public:
 	class CollideEvent : public Event
 	{
 	public:
-		CollideEvent() : Event(EventType::COLLISION_EVENT), g1(0), g2(0) {}
+		CollideEvent() : Event(EventType::COLLISION_EVENT), g1(NULL), g2(NULL) {}
 		~CollideEvent() {}
 
 	private:

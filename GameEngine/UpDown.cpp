@@ -3,6 +3,7 @@
 #include "FramerateController.h"
 #include "GameObject.h"
 #include <stdio.h>
+#include "EventManager.h"
 
 extern FramerateController FrameCrtl;
 extern EventManager EventMgr;
