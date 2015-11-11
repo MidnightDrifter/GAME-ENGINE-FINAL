@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	zoroark.addComponent(image);
 	zoroark.addComponent(controller);
 	zoroark.addComponent(transform);
-	//zoroark.addComponent(upDown);
+	zoroark.addComponent(upDown);
 	
 	bool run = true;
 
@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
 		SDL_UpdateWindowSurface(pWindow);
 		
 		controller->Update(transform);
-		//upDown->Update(transform);
+		upDown->Update(transform);
 		
 		
 		//zoroark.update();
