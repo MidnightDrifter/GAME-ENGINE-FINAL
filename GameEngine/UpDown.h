@@ -27,8 +27,8 @@ public:
 	void moveDown(int x);
 	void moveUp();
 	void moveDown();
-	void Update();
-	void Update(Transform* t);
+	void update();
+	void update(Transform* t);
 	void serialize(FILE** fpp);
 
 	int getTimer();

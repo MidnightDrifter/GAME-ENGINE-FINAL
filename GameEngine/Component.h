@@ -19,7 +19,7 @@ public:
 	Component(int t);
 	Component(GameObject* g);
 	virtual ~Component();
-	virtual void update();// = 0;
+	virtual void update() = 0;
 	virtual void serialize(FILE** fpp);
 	void setType(int i);
 	int getType();

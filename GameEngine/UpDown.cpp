@@ -63,7 +63,7 @@ void UpDown::moveDown()
 }
 
 
-void UpDown::Update()
+void UpDown::update()
 {
 	
 	if (isUp)
@@ -98,7 +98,7 @@ void UpDown::Update()
 }
 
 
-void UpDown::Update(Transform* t)
+void UpDown::update(Transform* t)
 {
 	
 

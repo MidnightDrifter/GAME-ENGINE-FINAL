@@ -58,3 +58,8 @@ void Sprite::serialize(FILE** fpp)
 
 
 }
+
+void Sprite::update()
+{
+
+}

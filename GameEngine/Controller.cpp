@@ -19,7 +19,7 @@ Controller::~Controller()
 
 
 
-void Controller::Update()
+void Controller::update()
 {
 	if (owner != NULL)
 	{
@@ -61,7 +61,7 @@ void Controller::Update()
 
 	}
 }
-	void Controller::Update(Transform* t)
+	void Controller::update(Transform* t)
 	{
 
 

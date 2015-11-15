@@ -25,6 +25,8 @@ public:
 
 	GameObject* createSerializedObject(const char* filename);
 
+	void pushGameObject(GameObject* g);
+
 private:
 
 	//static int objID;

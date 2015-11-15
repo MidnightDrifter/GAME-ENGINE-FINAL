@@ -70,3 +70,8 @@ void Transform::serialize(FILE** fpp)
 	this->setX(x);
 	this->setY(y);
 }
+
+void Transform::update()
+{
+
+}

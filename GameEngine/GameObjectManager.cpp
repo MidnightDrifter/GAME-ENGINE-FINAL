@@ -86,3 +86,8 @@ GameObject * GameObjectManager::createSerializedObject(const char* filename)
 	return p;
 }
 
+
+void GameObjectManager::pushGameObject(GameObject* g)
+{
+	this->gameObjects->push_back(g);
+}

@@ -15,8 +15,8 @@ class Controller :
 public:
 	Controller();
 	~Controller();
-	void Update();
-	void Update(Transform* t);
+	void update();
+	void update(Transform* t);
 	void serialize(FILE** fpp);
 	void handleEvent(Event* p);
 };
