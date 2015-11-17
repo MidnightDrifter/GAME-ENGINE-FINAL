@@ -296,7 +296,7 @@ GameObject::~GameObject()
 GameObject* GameObject::LoadObject(const char* filename)
 {
 	GameObject* obj = NULL;
-	FILE * fp = new FILE(); 
+	FILE * fp; 
 	fopen_s(&fp, filename, "r");
 	if (fp)
 	{

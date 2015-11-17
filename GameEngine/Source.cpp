@@ -49,8 +49,8 @@ int main(int argc, char* argv[])
 	//SDL_Surface* downWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_down.png");
 	//SDL_Surface* leftWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_left.png");
 	//SDL_Surface* rightWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_right.png");
-
-	GameObject zoroark = *(GameObjectMgr.createSerializedObject("LoadObjectTest.txt"));
+	const char* filename = "Serialization Test.txt";
+	GameObject zoroark = *(GameObjectMgr.createSerializedObject(filename));
 	//zoroark.addComponent(image);
 	//zoroark.addComponent(controller);
 	//zoroark.addComponent(transform);

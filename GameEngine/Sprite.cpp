@@ -53,7 +53,7 @@ SDL_Surface* Sprite::getSprite()
 void Sprite::serialize(FILE** fpp)
 {
 	std::string s = "";
-	fscanf_s(*fpp, "%s\n", s);
+	fscanf_s(*fpp, "%s\n", &s);
 	this->setSprite(ResourceMgr.loadSurface(s));
 
 

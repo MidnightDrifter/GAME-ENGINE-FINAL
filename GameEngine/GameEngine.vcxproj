@@ -190,6 +190,8 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LoadObjectTest.txt" />
+    <Text Include="LOT.txt" />
     <Text Include="Serialization Outline.txt" />
     <Text Include="Serialization Test.txt" />
     <Text Include="Text.txt" />
