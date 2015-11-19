@@ -12,6 +12,7 @@
 class GameObjectManager
 {
 	friend class PhysicsManager;
+	friend class EventManager;
 public:
 	GameObjectManager();
 	~GameObjectManager();
@@ -23,6 +24,8 @@ public:
 	void deleteGameObject(int ID);
 
 	GameObject* createSerializedObject(const char* filename);
+
+	void pushGameObject(GameObject* g);
 
 private:
 

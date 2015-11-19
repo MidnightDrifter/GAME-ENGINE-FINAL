@@ -155,6 +155,8 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="FramerateController.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -187,6 +191,8 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LoadObjectTest.txt" />
+    <Text Include="LOT.txt" />
     <Text Include="Serialization Outline.txt" />
     <Text Include="Serialization Test.txt" />
     <Text Include="Text.txt" />

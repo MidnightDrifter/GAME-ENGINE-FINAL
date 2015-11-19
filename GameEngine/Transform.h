@@ -26,6 +26,8 @@ public:
 	void subToX(int x);
 	void subToY(int y);
 	void serialize(FILE** fpp);
+
+	void update();
 protected:
 	int posX;
 	int posY;

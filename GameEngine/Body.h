@@ -31,6 +31,7 @@ public:
 	void setVelocity(float x, float y);
 	void setAcceleration(float x, float y);
 	void setForce(float x, float y);
+	void update();
 
 
 private:

@@ -15,6 +15,8 @@
 #include "Controller.h"
 #include "UpDown.h"
 #include "GameObjectManager.h"
+#include "Event.h"
+#include "EventManager.h"
 //#undef main
 
 #define WINDOW_X_POS 500
@@ -30,28 +32,29 @@
 InputManager InputMgr = InputManager();
 FramerateController FrameCrtl = FramerateController(60);
 GameObjectManager GameObjectMgr = GameObjectManager();
+EventManager EventMgr = EventManager();
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 int main(int argc, char* argv[])
 {
-	
+	/*
 	std::string pic = "Resources\\darkpursuit.png";
 	Sprite* image = new Sprite(pic);
 	Controller* controller = new Controller();
 	Transform* transform = new Transform(100, 100);
 	UpDown* upDown = new UpDown();
-
+	*/
 	
 
 	//SDL_Surface* upWinSurface = ResourceMgr.loadSurface("Resources\\darkpursuit.png");
 	//SDL_Surface* downWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_down.png");
 	//SDL_Surface* leftWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_left.png");
 	//SDL_Surface* rightWinSurface = ResourceMgr.loadSurface("Resources\\dark_pursuit_small_right.png");
-
-	GameObject zoroark = GameObject();
-	zoroark.addComponent(image);
-	zoroark.addComponent(controller);
-	zoroark.addComponent(transform);
-	zoroark.addComponent(upDown);
+	const char* filename = "Serialization Test.txt";
+	GameObject zoroark = *(GameObjectMgr.createSerializedObject(filename));
+	//zoroark.addComponent(image);
+	//zoroark.addComponent(controller);
+	//zoroark.addComponent(transform);
+	//zoroark.addComponent(upDown);
 	
 	bool run = true;
 
@@ -106,7 +109,7 @@ int main(int argc, char* argv[])
 
 		Sprite* spr = static_cast<Sprite*>(zoroark.getSprite());
 		Transform* trs = static_cast<Transform*>(zoroark.getTransform());
-		if (image->getSprite() == NULL)
+		if (spr->getSprite() == NULL)
 		{
 			exit(123);
 		}
@@ -130,11 +133,11 @@ int main(int argc, char* argv[])
 
 		SDL_UpdateWindowSurface(pWindow);
 		
-		controller->Update(transform);
-		upDown->Update(transform);
+		//controller->update(transform);
+		//upDown->update(transform);
 		
 		
-		//zoroark.update();
+		zoroark.update();
 		
 		SDL_PumpEvents();
 		FrameCrtl.FrameEnd();

@@ -7,6 +7,7 @@
 //#include "Controller.h"
 //#include "UpDown.h"
 #include <stdio.h>
+#include "Event.h"
 
 class GameObject;
 
@@ -18,10 +19,12 @@ public:
 	Component(int t);
 	Component(GameObject* g);
 	virtual ~Component();
-	virtual void update();// = 0;
+	virtual void update() = 0;
 	virtual void serialize(FILE** fpp);
 	void setType(int i);
 	int getType();
+
+	virtual void handleEvent(Event* t) {};
 
 	void setOwner(GameObject* i);
 		GameObject * getOwner();

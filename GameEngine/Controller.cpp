@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "GameObject.h"
 #include "..\..\SDL\include\SDL.h"
+#include "PhysicsManager.h"
 extern InputManager InputMgr;
 
 Controller::Controller()
@@ -18,7 +19,7 @@ Controller::~Controller()
 
 
 
-void Controller::Update()
+void Controller::update()
 {
 	if (owner != NULL)
 	{
@@ -60,7 +61,7 @@ void Controller::Update()
 
 	}
 }
-	void Controller::Update(Transform* t)
+	void Controller::update(Transform* t)
 	{
 
 
@@ -103,3 +104,22 @@ void Controller::Update()
 	}
 
 
+
+	void Controller::handleEvent(Event* t)
+	{
+		if (t->getEventType() == EventType::COLLISION_EVENT)
+		{
+			PhysicsManager::CollideEvent* cE = static_cast<PhysicsManager::CollideEvent*>(t);
+		}
+
+		Transform* tP = static_cast<Transform*>(owner->getTransform());
+
+		//Do something with event
+
+		if (tP)
+		{
+			//Do something with event here, i.e. reset xPos
+			tP->setX(0.0f);
+
+		}
+	}

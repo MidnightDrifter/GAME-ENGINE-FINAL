@@ -66,7 +66,12 @@ void Transform::serialize(FILE** fpp)
 {
 	float x = 0;
 	float y = 0;
-	fscanf_s(*fpp, "%f %f\n", x, y);
+	fscanf_s(*fpp, "%f %f\n", &x, &y);
 	this->setX(x);
 	this->setY(y);
+}
+
+void Transform::update()
+{
+
 }

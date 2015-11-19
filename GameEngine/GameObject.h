@@ -5,7 +5,7 @@
 #include <vector>
 #include "Component.h"
 #include <stdio.h>
-
+#include "Event.h"
 //#include "Transform.h"
 //#include "Sprite.h"
 //#include "UpDown.h"
@@ -63,7 +63,7 @@ public:
 	void decrementCounter();
 	static void initializeCounter();
 	int getCounter();
-
+	void handleEvent(Event* t);
 
 	/*UpDown* getUpDown(void);
 	Transform* getTransform(void);

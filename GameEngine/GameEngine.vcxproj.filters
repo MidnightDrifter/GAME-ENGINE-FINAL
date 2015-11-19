@@ -63,6 +63,12 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputManager.h">
@@ -113,6 +119,12 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Serialization Outline.txt">
@@ -125,6 +137,12 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Text1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="LoadObjectTest.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="LOT.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

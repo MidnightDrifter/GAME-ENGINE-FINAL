@@ -20,7 +20,7 @@ public:
 
 	void setSprite(SDL_Surface* i);
 	SDL_Surface* getSprite();
-
+	void update();
 	void serialize(FILE** fpp);
 
 private:

@@ -178,6 +178,7 @@ bool CollisionManager::CircleRectangleCollision(ShapeRectangle* rect, float rx, 
 }
 
 bool CollisionManager::CircleRectangleCollision(ShapeRectangle* rect, Vector2D rPos, ShapeCircle* circle, Vector2D cPos)
+
 {
 	return CircleRectangleCollision(circle, cPos, rect, rPos);
 }
@@ -272,3 +273,38 @@ bool CollisionManager::ShapeShapeCollision(Shape* a, Vector2D aPos, Shape* b, Ve
 		}
 	}
 }
+
+
+/*  Before Phyisics stuff:
+
+
+
+
+for (auto i : CollisionManager.contacts)
+{
+	CollideEvent collideEvent;
+	collideEvent.g1 = i->contacts[0]->owner;
+	collideEvent.g2 = i->contacts[1]->owner;
+
+	collideEvent.g1->HandleEvent(&collideEvent);
+	collideEvent.g2->HandleEvent(&collideEvent);
+}
+
+
+
+
+
+
+*/
+
+
+
+/*Physics stuff goes here?
+*
+*
+*
+*
+*
+*
+*
+*/

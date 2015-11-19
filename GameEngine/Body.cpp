@@ -201,3 +201,9 @@ float Body::getInverseMass() const
 Body::~Body()
 {
 }
+
+
+void Body::update()
+{
+
+}

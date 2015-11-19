@@ -57,7 +57,7 @@ GameObject::GameObject(std::vector<Component*> * i, int t)
 void GameObject::addComponent(Component* i)
 {
 
-
+	i->setOwner(this);
 	components->push_back(i);
 	
 	
@@ -85,7 +85,7 @@ void GameObject::initializeCounter()
 }
 Component* GameObject::getComponent(int type)
 {
-	if (components != NULL )//&& components->size() > 0)
+	if (components)//&& components->size() > 0)
 	{
 		for (int i = components->size()-1; i>=0; i--)
 		{
@@ -153,11 +153,58 @@ Component* GameObject::getController()
 
 void GameObject::update()
 {
-	for (int i = components->size()-1; i >= 0; i--)
+	for (auto i : *(this->getComponentVector()))
 	{
-		if(components->at(i) != NULL)
-		{components->at(i)->update();}
+		if (i)
+		{
+			i->update();
+		}
 	}
+
+
+	/*int x = this->getComponentVector()->capacity();
+	for (int i = x-1; i >= 0; i--)
+	{
+		if (components->at(i))
+		{
+			components->at(i)->update();
+		}
+		//Component* temp = components->at(i);
+		if(components->at(i) != NULL)
+		{
+			if (temp->getType() == COMPONENT_TYPE_BODY)
+			{
+				Sprite* sTemp = static_cast<Sprite*>(temp);
+				sTemp->update();
+			}
+
+			else if (temp->getType() == COMPONENT_TYPE_CONTROLLER)
+			{
+
+			}
+
+			else if (temp->getType() == COMPONENT_TYPE_SPRITE)
+			{
+
+			}
+
+			else if (temp->getType() == COMPONENT_TYPE_UPDOWN)
+			{
+
+			}
+
+			else if (temp->getType() == COMPONENT_TYPE_TRANSFORM)
+			{
+
+			}
+			
+			
+			}
+			
+
+
+	}
+	*/
 }
 
 
@@ -171,6 +218,13 @@ void GameObject::setID(int i)
 {
 	objectID = i;
 }
+
+void GameObject::handleEvent(Event* t)
+{
+
+}
+
+
 /*
 
 Sprite* GameObject::getSprite()
