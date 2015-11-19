@@ -114,6 +114,10 @@ int main(int argc, char* argv[])
 			exit(123);
 		}
 		
+		if (!trs)
+		{
+			exit(113344);
+		}
 		/*if (spr->getSprite() == NULL)
 		{
 

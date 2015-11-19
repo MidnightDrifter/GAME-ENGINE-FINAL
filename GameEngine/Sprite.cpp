@@ -51,9 +51,15 @@ SDL_Surface* Sprite::getSprite()
 }
 
 void Sprite::serialize(FILE** fpp)
-{
-	std::string s = "";
-	fscanf_s(*fpp, "%s\n", &s);
+{/*
+	char componentName[256];
+	memset(componentName, 0, 256 * sizeof(char));
+	fscanf_s(fp, "%255s\n", componentName, sizeof(componentName));
+	*/
+
+	char s[256];
+	memset(s, 0, 256 * sizeof(char));
+	fscanf_s(*fpp, "%255s\n", s, sizeof(s));
 	this->setSprite(ResourceMgr.loadSurface(s));
 
 

@@ -58,6 +58,11 @@ void GameObject::addComponent(Component* i)
 {
 
 	i->setOwner(this);
+	/*if(this != i->getOwner())
+	{
+		i->setOwner(this);
+	}
+	*/
 	components->push_back(i);
 	
 	
@@ -86,7 +91,7 @@ void GameObject::initializeCounter()
 Component* GameObject::getComponent(int type)
 {
 	if (components)//&& components->size() > 0)
-	{
+	{/*
 		for (int i = components->size()-1; i>=0; i--)
 		{
 			if (components->at(i)->getType() == type)
@@ -95,6 +100,15 @@ Component* GameObject::getComponent(int type)
 
 			}
 
+		}
+		*/
+
+		for (auto i : *components)
+		{
+			if(i->getType() == type)
+			{
+				return i;
+			}
 		}
 	}
 	printf("ERROR:  no such component exists in this object.\n");

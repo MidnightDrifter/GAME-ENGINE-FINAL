@@ -13,7 +13,7 @@ class Transform :
 	friend class Controller;
 
 public:
-	Transform() : posX(0), posY(0) {}
+	Transform() : posX(0), posY(0), Component(COMPONENT_TYPE_TRANSFORM) {}
 	Transform(int x, int y);
 	~Transform();
 	

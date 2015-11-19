@@ -32,14 +32,14 @@ void Controller::update()
 			if (InputMgr.isKeyPressed(SDL_SCANCODE_UP))
 			{
 				//Move up when up is pressed
-				t->addToY(3);
+				t->addToY(-3);
 			}
 
 
 			else if (InputMgr.isKeyPressed(SDL_SCANCODE_DOWN))
 			{
 				//Move up when up is pressed
-				t->subToY(3);
+				t->subToY(-3);
 			}
 
 
