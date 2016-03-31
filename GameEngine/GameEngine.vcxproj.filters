@@ -145,5 +145,8 @@
     <Text Include="LOT.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="teeeest.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
